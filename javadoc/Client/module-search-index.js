@@ -1,0 +1,1 @@
+moduleSearchIndex = [{"l":"wineshop.client"}];updateSearchResults();

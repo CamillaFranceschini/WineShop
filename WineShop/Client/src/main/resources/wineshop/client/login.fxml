@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wineshop.client.LoginController">
+    <children>
+        <ImageView fitHeight="106.0" fitWidth="382.0" layoutX="159.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@winenderlust.png" />
+            </image>
+        </ImageView>
+        <TabPane layoutX="14.0" layoutY="107.0" prefHeight="384.0" prefWidth="671.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Login">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fitHeight="90.0" fitWidth="87.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@loginAvatar.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="226.0" layoutY="149.0" prefHeight="17.0" prefWidth="60.0" text="Username">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="usernameField" layoutX="310.0" layoutY="145.0" />
+                                <Label layoutX="227.0" layoutY="184.0" prefHeight="17.0" prefWidth="60.0" text="Password">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <PasswordField fx:id="passwordField" accessibleRole="PASSWORD_FIELD" layoutX="310.0" layoutY="180.0" />
+                                <Label layoutX="263.0" layoutY="221.0" prefHeight="17.0" prefWidth="64.0" text="Employee?">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <CheckBox fx:id="flagEmployee" layoutX="342.0" layoutY="221.0" mnemonicParsing="false" />
+                                <Button fx:id="loginButton" alignment="CENTER" layoutX="295.0" layoutY="272.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="25.0" prefWidth="57.0" text="Login" />
+                                <Label fx:id="loginResultLabel" layoutX="240.0" layoutY="300.0" />
+                                <Label layoutX="280.0" layoutY="90.0" prefHeight="34.0" prefWidth="94.0" text="Welcome!">
+                                    <font>
+                                        <Font name="Centaur" size="24.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="135.0" fitWidth="133.0" layoutX="524.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@bottleAndGlass1.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="135.0" fitWidth="133.0" layoutX="14.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@bottleAndGlass2.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Sign Up">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fitHeight="77.0" fitWidth="89.0" layoutX="286.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@signUpAvatar.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="signUpButton" layoutX="288.0" layoutY="290.0" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="25.0" prefWidth="78.0" text="Sign Up" />
+                                <TextField fx:id="nameSignUp" layoutX="59.0" layoutY="71.0" prefHeight="25.0" prefWidth="165.0" promptText="Name" />
+                                <TextField fx:id="surnameSignUp" layoutX="59.0" layoutY="106.0" prefHeight="25.0" prefWidth="165.0" promptText="Surname" />
+                                <TextField fx:id="NINSignUp" layoutX="59.0" layoutY="140.0" prefHeight="25.0" prefWidth="165.0" promptText="National Insurance Number" />
+                                <TextField fx:id="emailSignUp" layoutX="59.0" layoutY="178.0" prefHeight="25.0" prefWidth="165.0" promptText="E-mail" />
+                                <TextField fx:id="phoneSignUp" layoutX="59.0" layoutY="216.0" prefHeight="25.0" prefWidth="165.0" promptText="Phone" />
+                                <TextField fx:id="addressSignUp" layoutX="59.0" layoutY="253.0" prefHeight="25.0" prefWidth="165.0" promptText="Address" />
+                                <TextField fx:id="usernameSignUp" layoutX="450.0" layoutY="106.0" promptText="Username" />
+                                <TextField fx:id="passwordSignUp" accessibleRole="PASSWORD_FIELD" layoutX="450.0" layoutY="159.0" promptText="Password" />
+                                <TextField fx:id="confirmPasswordSignUp" accessibleRole="PASSWORD_FIELD" layoutX="450.0" layoutY="216.0" promptText="Confirm Password" />
+                                <Label layoutX="282.0" layoutY="79.0" prefHeight="34.0" prefWidth="91.0" text="Welcome!">
+                                    <font>
+                                        <Font name="Centaur" size="24.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="121.0" fitWidth="124.0" layoutX="275.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@wineBottles.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="signUpResultLabel" layoutX="225.0" layoutY="324.0" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

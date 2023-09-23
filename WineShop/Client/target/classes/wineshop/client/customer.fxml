@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="clientCustomer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wineshop.client.CustomerController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Home">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onHomeClick" text="Go" />
+               </items></Menu>
+          <Menu mnemonicParsing="false" text="Wines">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onWineSearchClick" text="Search" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="My Orders">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onOrderSearchClick" text="Search" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Pane prefHeight="200.0" prefWidth="200.0">
+         <children>
+        <AnchorPane fx:id="apHome" minHeight="0.0" minWidth="0.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="355.0" prefWidth="655.0">
+                     <children>
+                        <Label fx:id="welcomeText" text="Welcome!" />
+                         <Label text="!! Special offer !!">
+                         <padding>
+                             <Insets top="50.0" />
+                         </padding>
+                        </Label>
+                        <Label text="Buy 6 bottles for a 5% discount or 12 bottles for a 10% discount" />
+
+                        <Label text="Add 6 more bottles for another 2% off or 12+ bottles for 3%" />
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="40.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        <AnchorPane fx:id="apWine" minHeight="0.0" minWidth="0.0" visible="false">
+               <children>
+                  <TableView fx:id="wineTV" maxHeight="1.7976931348623157E308" maxWidth="700.0" minWidth="700.0" onMouseClicked="#onWineTVClick" prefWidth="700.0">
+                     <padding>
+                        <Insets top="35.0" />
+                     </padding>
+                  </TableView>
+                  <ToolBar>
+                    <items>
+                        <TextField fx:id="nameField" promptText="Name" />
+                        <TextField fx:id="yearField" promptText="Year" />
+                      <Button fx:id="wineSearchButton" mnemonicParsing="false" onAction="#onWineSearchClick" text="Search" />
+                    </items>
+                  </ToolBar>
+               </children>
+        </AnchorPane>
+             <AnchorPane fx:id="apOrder" minHeight="0.0" minWidth="0.0" visible="false">
+                 <children>
+                     <TableView fx:id="orderTV" maxHeight="1.7976931348623157E308" maxWidth="700.0" minWidth="700.0" onMouseClicked="#onOrderTVClick" prefWidth="700.0">
+                         <padding>
+                             <Insets top="35.0" />
+                         </padding>
+                     </TableView>
+                     <ToolBar>
+                         <items>
+                             <ComboBox fx:id="stateCombo" prefWidth="150.0" />
+                             <DatePicker fx:id="startDateField" onAction="#LockCalendar" promptText="Data inizio" />
+                             <DatePicker fx:id="endDateField" onAction="#LockCalendar" promptText="Data fine" />
+                             <Button fx:id="searchOrdersButton" mnemonicParsing="false" onAction="#onOrderSearchClick" text="Search" />
+                         </items>
+                     </ToolBar>
+                 </children>
+             </AnchorPane>
+             <AnchorPane fx:id="apWineDetails" minHeight="0.0" minWidth="0.0" visible="false">
+         <children>
+             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0">
+                 <children>
+                     <Label fx:id="wineLabel" layoutX="286.0" layoutY="14.0" />
+                     <Button fx:id="loadWineButton" layoutX="274.0" layoutY="41.0" mnemonicParsing="false" text="Load wine" visible="false" />
+                     <TextField fx:id="priceWine" alignment="CENTER" editable="false" layoutX="500.0" layoutY="295.0" prefHeight="25.0" prefWidth="70.0" />
+                     <AnchorPane layoutX="466.0" layoutY="221.0" prefHeight="53.0" prefWidth="137.0">
+                         <children>
+                             <TextField fx:id="quantityBuy" alignment="CENTER" editable="false" layoutX="54.0" layoutY="14.0" prefHeight="25.0" prefWidth="29.0" text="1" />
+                             <Button fx:id="moreBuyButton" layoutX="93.0" layoutY="14.0" mnemonicParsing="false" onAction="#onMoreBuyButtonClick" prefHeight="25.0" prefWidth="29.0" text="+" />
+                             <Button fx:id="lessBuyButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLessBuyButtonClick" prefHeight="25.0" prefWidth="29.0" text="-" />
+                         </children>
+                     </AnchorPane>
+                     <ComboBox fx:id="paymentMethodCombo" layoutX="467.0" layoutY="350.0" prefHeight="25.0" prefWidth="137.0" promptText="Payment Method" />
+                     <TextField fx:id="wineProducer" editable="false" layoutX="118.0" layoutY="146.0" prefHeight="25.0" prefWidth="231.0" />
+                     <Button fx:id="buyButton" layoutX="305.0" layoutY="427.0" mnemonicParsing="false" onAction="#onBuyButtonClick" prefHeight="25.0" prefWidth="91.0" text="Buy" />
+                     <Label fx:id="resultBuy" layoutX="292.0" layoutY="329.0" />
+                     <TextField fx:id="wineName" editable="false" layoutX="118.0" layoutY="110.0" prefHeight="25.0" prefWidth="231.0" />
+                     <TextField fx:id="wineOrigin" editable="false" layoutX="118.0" layoutY="185.0" prefHeight="25.0" prefWidth="231.0" />
+                     <TextField fx:id="wineYear" editable="false" layoutX="118.0" layoutY="226.0" prefHeight="25.0" prefWidth="231.0" />
+                     <TextField fx:id="wineVines" editable="false" layoutX="118.0" layoutY="265.0" prefHeight="25.0" prefWidth="231.0" />
+                     <TextArea fx:id="wineNotes" editable="false" layoutX="46.0" layoutY="334.0" prefHeight="56.0" prefWidth="304.0" wrapText="true" />
+                     <Label layoutX="59.0" layoutY="114.0" text="Name">
+                         <font>
+                             <Font name="System Bold" size="12.0" />
+                         </font></Label>
+                     <Label layoutX="46.0" layoutY="150.0" text="Producer">
+                         <font>
+                             <Font name="System Bold" size="12.0" />
+                         </font></Label>
+                     <Label layoutX="59.0" layoutY="189.0" text="Origin">
+                         <font>
+                             <Font name="System Bold" size="12.0" />
+                         </font></Label>
+                     <Label layoutX="64.0" layoutY="230.0" text="Year">
+                         <font>
+                             <Font name="System Bold" size="12.0" />
+                         </font></Label>
+                     <Label layoutX="61.0" layoutY="269.0" text="Vines">
+                         <font>
+                             <Font name="System Bold" size="12.0" />
+                         </font></Label>
+                     <Label layoutX="48.0" layoutY="314.0" text="Technical notes:">
+                         <font>
+                             <Font name="System Bold" size="12.0" />
+                         </font></Label>
+                     <ImageView fitHeight="83.0" fitWidth="294.0" layoutX="202.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@winenderlust.png" />
+                         </image>
+                     </ImageView>
+                     <ImageView fitHeight="105.0" fitWidth="109.0" layoutX="482.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@bottleWine.png" />
+                         </image>
+                     </ImageView>
+                     <Label layoutX="520.0" layoutY="278.0" prefHeight="17.0" prefWidth="29.0" text="Price">
+                         <font>
+                             <Font name="System Bold" size="12.0" />
+                         </font>
+                     </Label>
+                 </children>
+             </AnchorPane>
+         </children>
+             </AnchorPane>
+             <AnchorPane fx:id="apOrderDetails" minHeight="0.0" minWidth="0.0" visible="false">
+                 <children>
+                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0">
+                         <children>
+                             <Label layoutX="239.0" layoutY="134.0" prefHeight="17.0" prefWidth="47.0" text="Id order">
+                                 <font>
+                                     <Font name="System Bold" size="12.0" />
+                                 </font>
+                             </Label>
+                             <ImageView fitHeight="81.0" fitWidth="325.0" layoutX="191.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                     <Image url="@winenderlust.png" />
+                                 </image>
+                             </ImageView>
+                             <Label layoutX="218.0" layoutY="172.0" prefHeight="17.0" prefWidth="70.0" text="Wine name">
+                                 <font>
+                                     <Font name="System Bold" size="12.0" />
+                                 </font>
+                             </Label>
+                             <Label layoutX="232.0" layoutY="209.0" prefHeight="17.0" prefWidth="55.0" text="Quantity">
+                                 <font>
+                                     <Font name="System Bold" size="12.0" />
+                                 </font>
+                             </Label>
+                             <Label layoutX="253.0" layoutY="250.0" prefHeight="17.0" prefWidth="30.0" text="Price">
+                                 <font>
+                                     <Font name="System Bold" size="12.0" />
+                                 </font>
+                             </Label>
+                             <Label layoutX="224.0" layoutY="289.0" prefHeight="17.0" prefWidth="70.0" text="Order date">
+                                 <font>
+                                     <Font name="System Bold" size="12.0" />
+                                 </font>
+                             </Label>
+                             <TextField fx:id="orderId" editable="false" layoutX="317.0" layoutY="130.0" prefHeight="25.0" prefWidth="186.0" />
+                             <TextField fx:id="orderWine" editable="false" layoutX="317.0" layoutY="168.0" prefHeight="25.0" prefWidth="186.0" />
+                             <TextField fx:id="orderQty" editable="false" layoutX="317.0" layoutY="205.0" prefHeight="25.0" prefWidth="186.0" />
+                             <TextField fx:id="orderPrice" editable="false" layoutX="317.0" layoutY="246.0" prefHeight="25.0" prefWidth="186.0" />
+                             <TextField fx:id="orderDate" editable="false" layoutX="317.0" layoutY="285.0" prefHeight="25.0" prefWidth="186.0" />
+                             <AnchorPane layoutX="334.0" layoutY="355.0" prefHeight="53.0" prefWidth="132.0">
+                                 <children>
+                                     <TextField fx:id="reviewValue" alignment="CENTER" editable="false" layoutX="47.0" layoutY="14.0" prefHeight="25.0" prefWidth="38.0" text="3" />
+                                     <Button fx:id="decreaseReviewButton" alignment="CENTER" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onDecreaseReviewButtonClick" text="-" />
+                                     <Button fx:id="increaseReviewButton" alignment="CENTER" layoutX="93.0" layoutY="14.0" mnemonicParsing="false" onAction="#onIncreaseReviewButtonClick" text="+" />
+                                 </children>
+                             </AnchorPane>
+                             <AnchorPane layoutX="247.0" layoutY="415.0" prefHeight="53.0" prefWidth="186.0">
+                                 <children>
+                                     <Button fx:id="rejectButton" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#onRejectOrderButtonClick" text="Reject" />
+                                     <Button fx:id="confirmButton" layoutX="115.0" layoutY="13.0" mnemonicParsing="false" onAction="#onConfirmOrderButtonClick" text="Confirm" />
+                                 </children>
+                             </AnchorPane>
+                             <Label layoutX="150.0" layoutY="326.0" prefHeight="17.0" prefWidth="139.0" text="Proposal delivery (days)">
+                                 <font>
+                                     <Font name="System Bold" size="12.0" />
+                                 </font>
+                             </Label>
+                             <TextField fx:id="orderPropDate" editable="false" layoutX="317.0" layoutY="322.0" prefHeight="25.0" prefWidth="186.0" />
+                             <Label layoutX="235.0" layoutY="373.0" prefHeight="17.0" prefWidth="47.0" text="Review">
+                                 <font>
+                                     <Font name="System Bold" size="12.0" />
+                                 </font>
+                             </Label>
+                         </children>
+                     </AnchorPane>
+                 </children>
+             </AnchorPane>
+         </children>
+      </Pane>
+   </children>
+</VBox>
